@@ -19,5 +19,6 @@ public class AnImplementation implements AnInterface{
         AnInterface  i = new AnImplementation();
         i.firstMethod();
         i.secondMethod();
+        i.newMethod();
     }
 }

@@ -9,21 +9,21 @@ class Bing implements Operations {
 
     @Override
     public void execute() {
-        System.out.println("Bing");
+        Operations.show("Bing");
     }
 }
 
 class Crack implements Operations {
     @Override
     public void execute() {
-        System.out.println("Crack");
+        Operations.show("Crack");
     }
 }
 
 class Twist implements Operations {
     @Override
     public void execute() {
-        System.out.println("Twist");
+        Operations.show("Twist");
     }
 }
 

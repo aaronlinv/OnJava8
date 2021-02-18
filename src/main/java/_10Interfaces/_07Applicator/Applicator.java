@@ -1,14 +1,9 @@
 package _10Interfaces._07Applicator;
 
+import _10Interfaces._08Adapter.Processor;
+
 import java.util.Arrays;
 
-interface Processor {
-    default String name() {
-        return getClass().getSimpleName();
-    }
-
-    Object process(Object input);
-}
 
 public class Applicator {
     public static void apply(Processor p, Object o) {

@@ -13,6 +13,10 @@ public class Parcel1 {
         }
     }
 
+    public Contents contents() {
+        return new Contents();
+    }
+
     class Destination {
         private String label;
 
@@ -25,6 +29,10 @@ public class Parcel1 {
         }
     }
 
+    public Destination to(String s) {
+        return new Destination(s);
+    }
+
     public void ship(String dest) {
         Contents c = new Contents();
         Destination d = new Destination(dest);
@@ -34,6 +42,10 @@ public class Parcel1 {
     public static void main(String[] args) {
         Parcel1 p = new Parcel1();
         p.ship("Tasmania");
+        
+        Parcel1.Contents contents = p.contents();
+        Parcel1.Destination borneo = p.to("Borneo");
+
     }
-    
+
 }

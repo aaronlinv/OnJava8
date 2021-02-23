@@ -43,14 +43,16 @@ public class Strategize {
     }
 
     public static void main(String[] args) {
-        Strategy[] strategies = {new Strategy() {
-
-            @Override
-            public String approach(String msg) {
-                return msg.toUpperCase() + "!";
-            }
-        }, msg -> msg.substring(0, 5),
-                Unrelated::twice};
+        Strategy[] strategies = {
+                new Strategy() {  // 1. 匿名内部类
+                    @Override
+                    public String approach(String msg) {
+                        return msg.toUpperCase() + "!";
+                    }
+                },
+                msg -> msg.substring(0, 5), // Java 8 的 Lambda 表达式，与单独定义类和采用匿名内部类是等价的
+                Unrelated::twice// Java 8 的方法引用
+        };
         Strategize s = new Strategize("Hello there");
         s.communicate();
         for (Strategy newStrategy : strategies) {

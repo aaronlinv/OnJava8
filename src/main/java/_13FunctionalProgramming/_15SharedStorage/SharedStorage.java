@@ -16,10 +16,22 @@ class Closure1 {
 
 
     // 局部变量
+    // IntSupplier makeFun(int x) {
+    //     final int i = 0;
+    //     // x 和 i ：被 Lambda 表达式引用的局部变量必须是 final 或者是等同 final 效果的
+    //     return () -> x + i;
+    // }
+
+    // 在闭包中，在使用 x 和 i 之前，通过将它们赋值给 final 修饰的变量
     IntSupplier makeFun(int x) {
-        final int i = 0;
-        // x 和 i ：被 Lambda 表达式引用的局部变量必须是 final 或者是等同 final 效果的
-        return () -> x + i;
+        int i = 0;
+        i++;
+        x++;
+
+        final int iFinal = i;
+        final int xFinal = x;
+
+        return () -> xFinal + iFinal;
     }
 }
 

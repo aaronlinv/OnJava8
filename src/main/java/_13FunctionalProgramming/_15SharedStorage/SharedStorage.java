@@ -8,10 +8,18 @@ import java.util.function.IntSupplier;
  */
 class Closure1 {
     // 如果你对同一个对象多次调用 makeFun() ，你最终会得到多个函数，它们共享 i 的存储空间
-    int i;
+    // int i;
+    //
+    // IntSupplier makeFun(int x) {
+    //     return () -> x + i++;
+    // }
 
+
+    // 局部变量
     IntSupplier makeFun(int x) {
-        return () -> x + i++;
+        final int i = 0;
+        // x 和 i ：被 Lambda 表达式引用的局部变量必须是 final 或者是等同 final 效果的
+        return () -> x + i;
     }
 }
 
